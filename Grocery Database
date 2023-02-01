@@ -1,0 +1,27 @@
+--Create a grocery store database
+
+CREATE TABLE groceries (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, expiration INTEGER);
+
+INSERT INTO groceries VALUES (1, "apple", 2, 1, 2023);
+SELECT * FROM groceries;
+INSERT INTO groceries VALUES (2, "chicken nuggets", 10, 3, 2024);
+INSERT INTO groceries VALUES (3, "spam", 4, 4, 2025); 
+INSERT INTO groceries VALUES (4, "milk", 8,2, 2023); 
+INSERT INTO groceries VALUES (5, "yogurt", 6, 2, 2023);
+INSERT INTO groceries VALUES (6, "chips", 3, 5, 2025); 
+INSERT INTO groceries VALUES (7, "coke", 2, 5, 2026); 
+INSERT INTO groceries VALUES (8, "water", 5, 5, 2025); 
+INSERT INTO groceries VALUES (9, "pencil", 11, 6, 3030);
+INSERT INTO groceries VALUES (10, "bacon", 15, 7, 2023);
+INSERT INTO groceries VALUES (11, "coffee", 5, 2, 2023);
+INSERT INTO groceries VALUES (12, "ham", 6, 7, 2023);
+INSERT INTO groceries VALUES (13, "bread", 3, 5, 2023);
+INSERT INTO groceries VALUES (14, "frozen beans", 2, 3, 2027);
+INSERT INTO groceries VALUES (15, "shampoo", 14, 6, 2024);
+
+--Display the items in order of expiration data
+
+SELECT name FROM groceries ORDER BY expiration; 
+
+--Which isle should I go first and what should I buy from the aisle?
+SELECT name, aisle FROM groceries ORDER BY aisle;
