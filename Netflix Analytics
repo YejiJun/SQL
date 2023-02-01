@@ -1,0 +1,6 @@
+--Show all movies along with the director and the rating of the film
+
+SELECT title, director, rating
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+LEFT JOIN  "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON people.show_id=titles.show_id;
