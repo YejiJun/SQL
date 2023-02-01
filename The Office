@@ -1,0 +1,41 @@
+--Create table about the people and what they do here
+
+CREATE TABLE office (id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+INSERT INTO office VALUES (1, "Michael", 45);
+INSERT INTO office VALUES (2, "Jim", 32);
+INSERT INTO office VALUES (3, "Pam", 30);
+INSERT INTO office VALUES (4, "Dwight", 38);
+INSERT INTO office VALUES (5, "Angela", 36);
+INSERT INTO office VALUES (6, "Toby", 39); 
+INSERT INTO office VALUES (7, "Kelly", 31);
+INSERT INTO office VALUES (8, "Oscar", 30);
+
+CREATE TABLE departments (id INTEGER PRIMARY KEY, name_id INTEGER, jobs TEXT);
+INSERT INTO departments VALUES(1, 1, "manager");
+INSERT INTO departments VALUES (2,2,"sales");
+INSERT INTO departments VALUES (3,3,"receptionist");
+INSERT INTO departments VALUES (4,4,"sales");
+INSERT INTO departments VALUES (5,5,"accounting");
+INSERT INTO departments VALUES (6,6,"HR");
+INSERT INTO departments VALUES (7,7,"HR");
+INSERT INTO departments VALUES (8,8, "accounting");
+
+CREATE TABLE couples (id INTEGER PRIMARY KEY, person1 INTEGER, person2 INTEGER);
+INSERT INTO couples VALUES (1, 2,3);
+INSERT INTO couples VALUES (2, 4,5);
+INSERT INTO couples VALUES (3, 1,8);
+
+--Display characters with their departments
+
+SELECT name, jobs FROM office JOIN departments ON departments.name_id=office.id;
+
+--Show all characters that get married or become a couple in the show
+
+SELECT a.name AS husband, b.name AS wife FROM couples 
+JOIN office a 
+ON couples.person1=a.id
+JOIN office b
+ON couples.person2=b.id;
+
+--Display characters by their age 
+SELECT name, age from office ORDER BY age;
