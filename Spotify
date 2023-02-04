@@ -1,0 +1,12 @@
+--View songs in order of danceability
+
+SELECT track_name, artist_name, danceability
+FROM Spotifydata
+ORDER BY danceability desc;
+
+--View how many artist are in the chart for more than one song
+
+SELECT artist_name, COUNT(artist_name)AS popularity 
+FROM Spotifydata
+GROUP BY artist_name
+HAVING Count(artist_name)>1;
