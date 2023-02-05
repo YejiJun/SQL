@@ -9,3 +9,17 @@ GROUP BY street
 SELECT street, average_rating, 'safe lane' as tag
 FROM tempbike
 WHERE average_rating>4.0;
+
+
+//list of all the bike lanes, both safety ratings for each lane, the average safety rating for each lane, and a label with the recommendation as "Remove",
+"Leave As-Is", or "Improvements Needed"
+
+SELECT street, safetyrating, 
+AVG(safetyrating) OVER (PARTITION BY street) as average_safety,
+CASE
+    WHEN AVG(safetyrating)OVER (PARTITION BY street)>=4 THEN "Leave As-Is"
+    WHEN AVG(safetyrating)OVER (PARTITION BY street)<2.5 THEN "Remove"
+    ELSE "Improvements Needed"
+END as "recommendation"
+FROM CityBikeLanes
+;
