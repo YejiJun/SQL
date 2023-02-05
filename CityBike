@@ -1,0 +1,11 @@
+--List all bike lanes with average rating greater than 4.0 and label as Safe Lane. 
+
+WITH tempbike AS(
+SELECT street, AVG(safetyrating) as average_rating
+FROM CityBikeLanes
+GROUP BY street
+)
+
+SELECT street, average_rating, 'safe lane' as tag
+FROM tempbike
+WHERE average_rating>4.0;
